@@ -1,0 +1,8 @@
+node_modules
+npm-debug.log
+dist
+*.js
+*.js.map
+src/**/*.test.ts
+.env
+prisma/migrations/.gitkeep

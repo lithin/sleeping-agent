@@ -1,0 +1,59 @@
+// This is your Prisma schema file,
+// learn more about it in the docs: https://pris.ly/d/prisma-schema
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+model Sleep {
+  id        Int         @id @default(autoincrement())
+  startTime DateTime    @map("start_time") @db.Timestamptz(3)
+  endTime   DateTime?   @map("end_time") @db.Timestamptz(3)
+  startTimeRaw String?  @map("start_time_raw")
+  endTimeRaw   String?  @map("end_time_raw")
+  type      String      // 'night' or 'nap'
+  notes     String?
+  wakes     SleepWake[]
+  createdAt DateTime    @default(now()) @map("created_at") @db.Timestamptz(3)
+  updatedAt DateTime    @updatedAt @map("updated_at") @db.Timestamptz(3)
+
+  @@map("sleeps")
+}
+
+model SleepWake {
+  id        Int      @id @default(autoincrement())
+  sleepId   Int      @map("sleep_id")
+  sleep     Sleep    @relation(fields: [sleepId], references: [id], onDelete: Cascade)
+  timestamp DateTime @db.Timestamptz(3)
+  notes     String?
+  createdAt DateTime @default(now()) @map("created_at") @db.Timestamptz(3)
+  updatedAt DateTime @updatedAt @map("updated_at") @db.Timestamptz(3)
+
+  @@map("sleep_wakes")
+}
+
+model Baby {
+  id          Int      @id @default(autoincrement())
+  name        String?
+  dateOfBirth DateTime? @map("date_of_birth") @db.Timestamptz(3)
+  gender      String?
+  feeding     String?
+  createdAt   DateTime @default(now()) @map("created_at") @db.Timestamptz(3)
+  updatedAt   DateTime @updatedAt @map("updated_at") @db.Timestamptz(3)
+
+  @@map("babies")
+}
+
+model CacheEntry {
+  key       String   @id
+  timestamp DateTime @db.Timestamptz(3)
+  data      String
+  updatedAt DateTime @updatedAt @map("updated_at") @db.Timestamptz(3)
+
+  @@map("cache_entries")
+}

@@ -1,0 +1,37 @@
+{
+  "name": "sleeping-agent-app",
+  "version": "0.1.0",
+  "main": "index.js",
+  "scripts": {
+    "start": "expo start",
+    "android": "expo start --android",
+    "ios": "expo start --ios",
+    "web": "expo start --web",
+    "lint": "biome lint ./src",
+    "format": "biome format ./src --write",
+    "check": "biome check ./src"
+  },
+  "dependencies": {
+    "expo": "~51.0.0",
+    "expo-status-bar": "~1.12.0",
+    "react": "18.2.0",
+    "react-native": "0.74.5",
+    "react-native-paper": "^5.12.3",
+    "react-native-safe-area-context": "4.10.5",
+    "react-native-screens": "3.31.1",
+    "@react-navigation/native": "^6.1.9",
+    "@react-navigation/bottom-tabs": "^6.5.11",
+    "@react-native-community/datetimepicker": "8.0.1",
+    "react-hook-form": "^7.50.1",
+    "@hookform/resolvers": "^3.3.4",
+    "zod": "^3.22.4",
+    "dayjs": "^1.11.19"
+  },
+  "devDependencies": {
+    "@babel/core": "^7.25.2",
+    "@biomejs/biome": "^1.6.4",
+    "@types/react": "~18.2.45",
+    "typescript": "^5.3.3"
+  },
+  "private": true
+}
