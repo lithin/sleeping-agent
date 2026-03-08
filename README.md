@@ -1,6 +1,6 @@
 # Sleeping Agent
 
-Mono-repo for the Sleeping Agent app - track baby sleep, get AI suggestions.
+Mono-repo for the Sleeping Agent app - vibe coded ai agent to track improve baby sleep.
 
 ## Structure
 
@@ -8,7 +8,6 @@ Mono-repo for the Sleeping Agent app - track baby sleep, get AI suggestions.
 /frontend   - Vite + React + TypeScript web UI
 /backend    - Express + TypeScript API server
 /app        - React Native mobile app (iOS/Android)
-/db         - PostgreSQL (via docker-compose)
 ```
 
 ## Quick Start
