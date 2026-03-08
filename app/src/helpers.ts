@@ -5,11 +5,14 @@ import Constants from "expo-constants";
 // For Android emulator: http://10.0.2.2:4000
 // For physical device: http://YOUR_COMPUTER_IP:4000
 export const API_BASE =
-  Constants.expoConfig?.extra?.apiBaseUrl ?? "http://localhost:4000";
+  process.env.EXPO_PUBLIC_API_BASE_URL ??
+  Constants.expoConfig?.extra?.apiBaseUrl ??
+  "http://localhost:4000";
 
 export const API_SECRET_KEY =
+  process.env.EXPO_PUBLIC_API_SECRET_KEY ??
   Constants.expoConfig?.extra?.apiSecretKey ??
-  "dev-secret-key-change-in-production";
+  "";
 
 export const toIso = (value: string) => {
   const date = new Date(value);

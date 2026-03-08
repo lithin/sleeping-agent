@@ -234,7 +234,7 @@ Only return valid JSON that matches the provided schema. Do not include markdown
       prompt,
       payload,
       responseSchema,
-      1600,
+      3200,
     );
 
     const sleepTime = typeof result.sleepTime === "string" ? result.sleepTime : null;
@@ -317,7 +317,7 @@ Only return valid JSON that matches the provided schema. Do not include markdown
       prompt,
       payload,
       responseSchema,
-      1600,
+      3200,
     );
 
     const analysis = typeof result.analysis === "string" ? result.analysis : "";

@@ -1,10 +1,11 @@
-import { NavigationContainer } from "@react-navigation/native";
+import { FontAwesome5 } from "@expo/vector-icons";
 import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
+import { NavigationContainer } from "@react-navigation/native";
 import { Provider as PaperProvider } from "react-native-paper";
 import { SafeAreaProvider } from "react-native-safe-area-context";
-import InsightsTab from "./InsightsTab";
-import SleepTab from "./SleepTab";
 import BabyTab from "./BabyTab";
+import InsightsTab from "./InsightsTab";
+import SleepTab from "./sleep/SleepTab";
 
 const Tab = createBottomTabNavigator();
 
@@ -14,9 +15,25 @@ export default function App() {
             <PaperProvider>
                 <NavigationContainer>
                     <Tab.Navigator
-                        screenOptions={{
+                        screenOptions={({ route }) => ({
                             headerTitle: "Sleeping Agent",
-                        }}
+                            tabBarIconStyle: {
+                                marginTop: 8,
+                            },
+                            tabBarLabelStyle: {
+                                marginBottom: 6,
+                            },
+                            tabBarIcon: ({ color }) => {
+                                const iconName =
+                                    route.name === "Insights"
+                                        ? "chart-line"
+                                        : route.name === "Sleep"
+                                            ? "moon"
+                                            : "baby";
+
+                                return <FontAwesome5 name={iconName} size={18} color={color} />;
+                            },
+                        })}
                     >
                         <Tab.Screen
                             name="Insights"

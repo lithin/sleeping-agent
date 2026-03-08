@@ -6,6 +6,17 @@ import sleepsRouter from "./routes/sleeps";
 import wakesRouter from "./routes/wakes";
 import insightsRouter from "./routes/insights";
 
+// Construct DATABASE_URL from individual environment variables if not already set
+if (!process.env.DATABASE_URL) {
+  const { DB_USER, DB_PASSWORD, DB_HOST, DB_PORT, DB_NAME, DB_SOCKET_PATH } = process.env;
+  if (DB_USER && DB_PASSWORD && DB_NAME && DB_SOCKET_PATH) {
+    const socketPath = encodeURIComponent(DB_SOCKET_PATH);
+    process.env.DATABASE_URL = `postgresql://${DB_USER}:${DB_PASSWORD}@localhost/${DB_NAME}?host=${socketPath}&schema=public`;
+  } else if (DB_USER && DB_PASSWORD && DB_HOST && DB_PORT && DB_NAME) {
+    process.env.DATABASE_URL = `postgresql://${DB_USER}:${DB_PASSWORD}@${DB_HOST}:${DB_PORT}/${DB_NAME}?schema=public`;
+  }
+}
+
 const app = express();
 app.use(cors());
 app.use(bodyParser.json());

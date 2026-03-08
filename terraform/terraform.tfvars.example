@@ -1,0 +1,28 @@
+# Copy this file to terraform.tfvars and fill in your values
+# terraform.tfvars is gitignored and will not be committed
+
+# Your GCP Project ID
+project_id = "your-gcp-project-id"
+
+# GCP Region (us-central1, us-east1, europe-west1, etc.)
+region = "us-central1"
+
+# Application name (used for resource naming)
+app_name = "sleep-agent"
+
+# Database configuration
+database_name     = "sleepagent"
+database_user     = "sleepagent"
+database_password = "CHANGE-THIS-TO-SECURE-PASSWORD"
+
+# Cloud SQL tier (db-f1-micro for free tier, db-g1-small for better performance)
+db_tier = "db-f1-micro"
+
+# API Secret Key (generate with: openssl rand -hex 32)
+api_secret_key = "CHANGE-THIS-TO-SECURE-KEY"
+
+# OpenAI Configuration
+openai_api_key = "sk-your-openai-api-key-here"
+
+# Enable deletion protection for production (set to false for testing)
+deletion_protection = true

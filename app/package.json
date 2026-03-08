@@ -4,34 +4,38 @@
   "main": "index.js",
   "scripts": {
     "start": "expo start",
-    "android": "expo start --android",
-    "ios": "expo start --ios",
+    "android": "expo run:android",
+    "ios": "expo run:ios",
     "web": "expo start --web",
+    "build:android": "eas build --platform android",
+    "build:android:preview": "eas build --platform android --profile preview",
     "lint": "biome lint ./src",
     "format": "biome format ./src --write",
     "check": "biome check ./src"
   },
   "dependencies": {
+    "@hookform/resolvers": "^3.3.4",
+    "@react-native-community/datetimepicker": "8.0.1",
+    "@react-navigation/bottom-tabs": "^6.5.11",
+    "@react-navigation/native": "^6.1.9",
+    "dayjs": "^1.11.19",
     "expo": "~51.0.0",
+    "expo-build-properties": "~0.12.0",
+    "expo-constants": "~16.0.2",
     "expo-status-bar": "~1.12.0",
     "react": "18.2.0",
+    "react-hook-form": "^7.50.1",
     "react-native": "0.74.5",
     "react-native-paper": "^5.12.3",
     "react-native-safe-area-context": "4.10.5",
     "react-native-screens": "3.31.1",
-    "@react-navigation/native": "^6.1.9",
-    "@react-navigation/bottom-tabs": "^6.5.11",
-    "@react-native-community/datetimepicker": "8.0.1",
-    "react-hook-form": "^7.50.1",
-    "@hookform/resolvers": "^3.3.4",
-    "zod": "^3.22.4",
-    "dayjs": "^1.11.19"
+    "zod": "^3.22.4"
   },
   "devDependencies": {
     "@babel/core": "^7.25.2",
     "@biomejs/biome": "^1.6.4",
     "@types/react": "~18.2.45",
-    "typescript": "^5.3.3"
+    "typescript": "~5.3.3"
   },
   "private": true
 }
